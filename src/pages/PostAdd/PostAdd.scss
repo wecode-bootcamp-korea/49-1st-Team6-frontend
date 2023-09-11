@@ -1,0 +1,25 @@
+.postAdd {
+  display: flex;
+  gap: 24px;
+
+  .userprofile {
+    width: 48px;
+    height: 48px;
+  }
+  .userWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    .userNickName {
+      font-weight: bold;
+    }
+    .userPost {
+      width: 307px;
+      height: 617px;
+      &::placeholder {
+        padding-left: 16px;
+        padding-top: 15px;
+      }
+    }
+  }
+}

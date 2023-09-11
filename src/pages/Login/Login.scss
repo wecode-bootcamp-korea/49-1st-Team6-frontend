@@ -1,0 +1,90 @@
+@import '../../styles/variables.scss';
+
+@mixin flexCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login {
+  @include flexCenter;
+  height: 100%;
+
+  .imglogo {
+    @include flexCenter;
+    gap: 24px;
+    height: 555px;
+
+    .logo {
+      width: 118px;
+    }
+    .wecode {
+      width: 144px;
+    }
+  }
+  .inputBox {
+    @include flexCenter;
+    width: 100%;
+    .inputGap {
+      @include flexCenter;
+      gap: 8px;
+      .userInput {
+        height: 56px;
+        padding: 19px 0 15px 16px;
+        border: 1px solid $Grey88;
+        border-radius: 6px;
+        width: 528px;
+        &::placeholder {
+          color: $Grey60;
+        }
+        &:disabled {
+          background: $Grey98;
+          border: 1px solid $Grey80;
+          &::placeholder {
+            color: $Grey80;
+          }
+        }
+      }
+      .loginBtn {
+        margin-top: 4px;
+        height: 56px;
+        background-color: $Blue;
+        color: $White;
+        border: none;
+        border-radius: 6px;
+        width: 100%;
+        &:hover {
+          background-color: $Navy;
+        }
+        &:disabled {
+          background-color: $Grey80;
+        }
+      }
+    }
+  }
+}
+
+.joinBar {
+  margin-top: 12px;
+  display: flex;
+  margin-bottom: 40px;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Sans KR', sans-serif;
+
+  .join {
+    width: 96px;
+    text-decoration-line: none;
+    color: black;
+  }
+  .bar {
+    color: $Grey88;
+  }
+
+  .pwSearch {
+    width: 96px;
+    padding-left: 36px;
+    white-space: nowrap;
+  }
+}
