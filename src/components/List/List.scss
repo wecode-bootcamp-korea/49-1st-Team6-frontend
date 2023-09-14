@@ -1,0 +1,56 @@
+@import '../../styles/variables.scss';
+
+.container {
+  padding: 0 24px;
+  .post {
+    padding: 0 8px 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid $Grey88;
+    .top {
+      &::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      .left {
+        display: flex;
+        align-items: center;
+        float: left;
+        .nickname {
+          font-size: 20px;
+          font-weight: 700;
+          margin-left: 16px;
+        }
+      }
+      .right {
+        float: right;
+        .date {
+          color: $Grey88;
+          line-height: 50px;
+        }
+      }
+    }
+
+    .contents {
+      color: #333;
+      margin: 16px 0;
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .comment {
+      line-height: 22px;
+      color: $Grey60;
+    }
+  }
+
+  .write {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    align-self: stretch;
+  }
+}

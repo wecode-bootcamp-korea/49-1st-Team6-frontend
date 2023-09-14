@@ -1,0 +1,28 @@
+@import '../../styles/variables.scss';
+
+.postList {
+  width: 576px;
+  min-width: 320px;
+  height: 80%;
+  margin: auto 0;
+  padding: 40px 0;
+  .write {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    button {
+      display: flex;
+      width: 120px;
+      height: var(--input_Height, 56px);
+      padding: 0px 34px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      background-color: $Blue;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+    }
+  }
+}
