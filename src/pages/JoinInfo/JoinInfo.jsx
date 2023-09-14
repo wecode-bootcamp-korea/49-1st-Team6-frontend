@@ -5,7 +5,24 @@ import './JoinInfo.scss';
 const JoinInfo = () => {
   const [joinid, setJoinId] = useState('');
   const [joinpw, setJoinPw] = useState('');
+  const [joinnickname, setNickName] = useState('');
   const [joinconfirm, setConfirm] = useState('');
+
+  const handleClick = () => {
+    fetch('http://127.0.1.1:8000/users/singUp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: joinid,
+        password: joinpw,
+        nickname: joinnickname,
+      }),
+    }) //요청
+      .then(response => response.json())
+      .then(data => console.log(data));
+  };
 
   const saveJoinId = event => {
     setJoinId(event.target.value);
@@ -17,7 +34,14 @@ const JoinInfo = () => {
     setConfirm(event.target.value);
   };
 
-  console.log(joinid, joinpw, joinconfirm);
+  const saveNickName = event => {
+    setNickName(event.target.value);
+  };
+
+  const isBtnActive =
+    joinid.includes('@') && joinid.includes('.') && joinpw.length > 10;
+
+  console.log(joinid, joinpw, joinconfirm, joinnickname);
   return (
     <div className="joinInfo">
       <Link className="back" to="/">
@@ -51,9 +75,19 @@ const JoinInfo = () => {
           <div className="nickName">닉네임</div>
           <div className="choose">선택사항</div>
         </div>
-        <input className="userInput" placeholder="닉네임" />
+        <input
+          className="userInput"
+          placeholder="닉네임"
+          onChange={saveNickName}
+        />
 
-        <button className="loginBtn">회원 가입</button>
+        <button
+          className="loginBtn"
+          disabled={!isBtnActive}
+          onClick={handleClick}
+        >
+          회원 가입
+        </button>
       </div>
     </div>
   );

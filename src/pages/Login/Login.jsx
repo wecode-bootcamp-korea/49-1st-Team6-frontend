@@ -15,11 +15,30 @@ const Login = () => {
   };
 
   const goToPostList = () => {
-    navigate('/post-list');
+    fetch('', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: '',
+        password: '',
+      }),
+    }) //요청
+      .then(response => response.json())
+      .then(data => {
+        if (data.accessToken) {
+          localStorage.setItem('login-token', data.accessToken);
+        }
+        console.log(data);
+        navigate('/post-list');
+      });
+
+    // console.log(data)
   };
   console.log(userid, userpw);
 
-  const isBtnActive = userid.includes('@');
+  const isBtnActive = userid.includes('@') && userid.includes('.');
 
   return (
     <>

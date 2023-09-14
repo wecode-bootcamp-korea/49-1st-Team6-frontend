@@ -111,4 +111,7 @@
   border: none;
   border-radius: 6px;
   width: 528px;
+  &:disabled {
+    background-color: $Navy;
+  }
 }
