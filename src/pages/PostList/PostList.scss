@@ -6,74 +6,23 @@
   height: 80%;
   margin: auto 0;
   padding: 40px 0;
-  //outline: 2px solid red;
-  .container {
-    padding: 0 24px;
-    .post {
-      padding: 0 8px 24px;
-      //outline: 2px solid blue;
-      border-bottom: 1px solid $Grey88;
-      .top {
-        //outline: 2px solid blue;
-        &::after {
-          content: '';
-          display: block;
-          clear: both;
-        }
-        .left {
-          display: flex;
-          align-items: center;
-          float: left;
-          .nickname {
-            font-size: 20px;
-            font-weight: 700;
-            margin-left: 16px;
-          }
-        }
-        .right {
-          float: right;
-          .date {
-            color: $Grey88;
-            line-height: 50px;
-          }
-        }
-      }
-
-      .contents {
-        color: #333;
-        margin: 16px 0;
-        font-size: 20px;
-        line-height: 28px;
-      }
-
-      .comment {
-        line-height: 22px;
-        color: $Grey60;
-      }
-    }
-
-    .write {
-      margin-top: 24px;
-      width: 100%;
+  .write {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    button {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-      align-self: stretch;
-      button {
-        display: flex;
-        width: 120px;
-        height: var(--input_Height, 56px);
-        padding: 0px 34px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 6px;
-        background-color: $Blue;
-        border: none;
-        color: #fff;
-        font-size: 16px;
-        font-weight: 800;
-      }
+      width: 120px;
+      height: var(--input_Height, 56px);
+      padding: 0px 34px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      background-color: $Blue;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
     }
   }
 }
