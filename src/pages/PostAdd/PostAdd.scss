@@ -1,0 +1,67 @@
+@import '../../styles/variables.scss';
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  .postAdd {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid $Grey80;
+
+    .userprofile {
+      width: 48px;
+      height: 48px;
+      border-radius: 100%;
+    }
+    .userWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .userNickName {
+        font-weight: bold;
+      }
+      .userPost {
+        width: 307px;
+        height: 500px;
+        border: 1px solid $Grey88;
+        border-radius: 6px;
+        outline: $Grey88;
+        resize: none;
+        padding-left: 16px;
+        padding-top: 15px;
+        // &::placeholder {
+
+        // }
+      }
+    }
+  }
+
+  .userBtn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .userBtnc {
+      width: 120px;
+      height: 56px;
+      background-color: $White;
+      color: $Blue;
+      border: 1px solid $Blue;
+      border-radius: 6px;
+    }
+    .userBtnp {
+      width: 120px;
+      height: 56px;
+      background-color: $Blue;
+      color: $White;
+      border: none;
+      border-radius: 6px;
+      &:disabled {
+        background-color: $Navy;
+      }
+    }
+  }
+}

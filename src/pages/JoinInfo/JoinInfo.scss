@@ -1,0 +1,132 @@
+@import '../../styles/variables.scss';
+
+@mixin flexCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.joinInfo {
+  .back {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-bottom: 24px;
+    text-decoration-line: none;
+    color: black;
+  }
+
+  h1 {
+    padding-left: 24px;
+    font-size: 32px;
+    width: 528px;
+  }
+  .basic {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    margin-left: 25px;
+    width: 100%;
+    .essential {
+      font-size: 12px;
+    }
+  }
+
+  .userInput {
+    height: 56px;
+    padding: 19px 0 15px 16px;
+    border: 1px solid $Grey88;
+    border-radius: 6px;
+    width: 528px;
+    margin-top: 8px;
+    &::placeholder {
+      color: $Grey60;
+    }
+  }
+  .userNickName {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    width: 528px;
+    .choose {
+      font-size: 12px;
+    }
+    .userInput {
+      height: 56px;
+      padding: 19px 0 15px 16px;
+      border: 1px solid $Grey88;
+      border-radius: 6px;
+      width: 528px;
+      margin-top: 8px;
+      &::placeholder {
+        color: $Grey60;
+      }
+    }
+  }
+  .joinInfoBox {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 470px;
+    padding-left: 24px;
+
+    .userInput {
+      height: 56px;
+      padding: 19px 0 15px 16px;
+      border: 1px solid $Grey88;
+      border-radius: 6px;
+      width: 528px;
+      margin-top: 8px;
+      &::placeholder {
+        color: $Grey60;
+      }
+
+      // .joinBox {
+      //   display: flex;
+
+      //   .userInput {
+      //     height: 56px;
+      //     padding: 19px 0 15px 16px;
+      //     border: 1px solid $Grey88;
+      //     border-radius: 6px;
+      //     width: 528px;
+      //     margin-top: 8px;
+      //     &::placeholder {
+      //       color: $Grey60;
+      //     }
+      //   }
+      // }
+    }
+    .userInputMistake {
+      height: 56px;
+      padding: 19px 0 15px 16px;
+      border: 1px solid red;
+      border-radius: 6px;
+      width: 528px;
+      margin-top: 8px;
+      color: red;
+      &::placeholder {
+        color: red;
+      }
+      &:focus {
+        outline: 1px solid red;
+      }
+    }
+  }
+}
+
+.loginBtn {
+  margin-top: 8px;
+  height: 56px;
+  background-color: $Blue;
+  color: $White;
+  border: none;
+  border-radius: 6px;
+  width: 528px;
+  &:disabled {
+    background-color: $Navy;
+  }
+}
