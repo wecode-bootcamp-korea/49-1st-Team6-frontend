@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import './PostAdd.scss';
 const PostAdd = () => {
-  const [userprofile, setProfile] = useState('');
-  const [userpost, setUserPost] = useState('');
+  const [userProfile, setUserProfile] = useState({});
+  const [userPost, setUserPost] = useState('');
   const navigate = useNavigate();
   const getUserInfo = () => {
     fetch('/data/mockData.json', {
@@ -18,35 +18,39 @@ const PostAdd = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        setProfile(data);
+        setUserProfile(data);
       });
   };
 
   useEffect(() => {
     getUserInfo();
-    return console.log(userprofile.nickname);
   }, []);
 
   const saveUserPost = event => {
     setUserPost(event.target.value);
   };
 
-  const Active = userpost.length > 2;
+  const isHandlePost = userPost.length > 2;
 
-  const userPost = () => {
+  const sendUserPost = () => {
     fetch('http://10.58.52.228:8000/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        authorization: '토큰',
+        authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
-        content: '유저가 작성 한 글',
+        content: userPost,
       }),
     }) //요청
       .then(response => response.json())
-      .then(result => console.log(result));
-    navigate('/post-list');
+      .then(data => {
+        if (data.message === 'userCreated') {
+          navigate('/post-list');
+        } else {
+          alert('다시 시도해주세요');
+        }
+      });
   };
 
   return (
@@ -58,7 +62,7 @@ const PostAdd = () => {
           alt="프로필"
         />
         <div className="userWrapper">
-          <div className="userNickName">{userprofile.nickname}</div>
+          <div className="userNickName">{userProfile.nickname}</div>
           <textarea
             className="userPost"
             placeholder="스레드를 시작하세요."
@@ -69,7 +73,11 @@ const PostAdd = () => {
 
       <div className="userBtn">
         <button className="userBtnc">취소</button>
-        <button className="userBtnp" disabled={!Active} onClick={userPost}>
+        <button
+          className="userBtnp"
+          disabled={!isHandlePost}
+          onClick={sendUserPost}
+        >
           게시
         </button>
       </div>

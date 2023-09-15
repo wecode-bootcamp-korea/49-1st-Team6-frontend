@@ -84,20 +84,35 @@
         color: $Grey60;
       }
 
-      .joinBox {
-        display: flex;
+      // .joinBox {
+      //   display: flex;
 
-        .userInput {
-          height: 56px;
-          padding: 19px 0 15px 16px;
-          border: 1px solid $Grey88;
-          border-radius: 6px;
-          width: 528px;
-          margin-top: 8px;
-          &::placeholder {
-            color: $Grey60;
-          }
-        }
+      //   .userInput {
+      //     height: 56px;
+      //     padding: 19px 0 15px 16px;
+      //     border: 1px solid $Grey88;
+      //     border-radius: 6px;
+      //     width: 528px;
+      //     margin-top: 8px;
+      //     &::placeholder {
+      //       color: $Grey60;
+      //     }
+      //   }
+      // }
+    }
+    .userInputMistake {
+      height: 56px;
+      padding: 19px 0 15px 16px;
+      border: 1px solid red;
+      border-radius: 6px;
+      width: 528px;
+      margin-top: 8px;
+      color: red;
+      &::placeholder {
+        color: red;
+      }
+      &:focus {
+        outline: 1px solid red;
       }
     }
   }

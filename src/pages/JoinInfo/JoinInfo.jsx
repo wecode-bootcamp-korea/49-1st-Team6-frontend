@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom';
 import './JoinInfo.scss';
 
 const JoinInfo = () => {
-  const [joinid, setJoinId] = useState('');
-  const [joinpw, setJoinPw] = useState('');
-  const [joinnickname, setNickName] = useState('');
-  const [joinconfirm, setConfirm] = useState('');
+  const [joinId, setJoinId] = useState('');
+  const [joinPw, setJoinPw] = useState('');
+  const [joinNickName, setNickName] = useState('');
+  const [joinConfirm, setjoinConfirm] = useState('');
 
   const handleClick = () => {
-    fetch('http://127.0.1.1:8000/users/singUp', {
+    fetch('http://localhost:8000/users/signUp', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
-        email: joinid,
-        password: joinpw,
-        nickname: joinnickname,
+        email: joinId,
+        password: joinPw,
+        nickname: joinNickName,
       }),
     }) //요청
       .then(response => response.json())
@@ -30,8 +30,8 @@ const JoinInfo = () => {
   const saveJoinPw = event => {
     setJoinPw(event.target.value);
   };
-  const saveConfirm = event => {
-    setConfirm(event.target.value);
+  const savejoinConfirm = event => {
+    setjoinConfirm(event.target.value);
   };
 
   const saveNickName = event => {
@@ -39,9 +39,8 @@ const JoinInfo = () => {
   };
 
   const isBtnActive =
-    joinid.includes('@') && joinid.includes('.') && joinpw.length > 10;
+    joinId.includes('@') && joinId.includes('.') && joinPw.length > 10;
 
-  console.log(joinid, joinpw, joinconfirm, joinnickname);
   return (
     <div className="joinInfo">
       <Link className="back" to="/">
@@ -66,9 +65,9 @@ const JoinInfo = () => {
             onChange={saveJoinPw}
           />
           <input
-            className="userInput"
+            className={`userInput${joinConfirm === joinPw ? '' : 'Mistake'}`}
             placeholder="비밀번호 확인"
-            onChange={saveConfirm}
+            onChange={savejoinConfirm}
           />
         </div>
         <div className="userNickName">

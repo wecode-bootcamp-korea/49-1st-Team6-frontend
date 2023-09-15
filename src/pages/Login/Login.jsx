@@ -15,28 +15,28 @@ const Login = () => {
   };
 
   const goToPostList = () => {
-    fetch('', {
+    fetch('http://localhost:8000/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: '',
-        password: '',
+        email: userid,
+        password: userpw,
       }),
     }) //요청
       .then(response => response.json())
       .then(data => {
         if (data.accessToken) {
-          localStorage.setItem('login-token', data.accessToken);
+          localStorage.setItem('token', data.accessToken);
+          navigate('/post-list');
+        } else {
+          alert('다시 시도해주세요');
         }
-        console.log(data);
-        navigate('/post-list');
       });
 
     // console.log(data)
   };
-  console.log(userid, userpw);
 
   const isBtnActive = userid.includes('@') && userid.includes('.');
 

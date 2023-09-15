@@ -8,7 +8,7 @@ const PostEditing = () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        authorization: localStorage.getItem('login-token'),
+        authorization: localStorage.getItem('token'),
       },
       // body: JSON.stringify({}),
     }) //요청
@@ -30,8 +30,13 @@ const PostEditing = () => {
       }),
     }) //요청
       .then(response => response.json())
-      .then(result => console.log(result));
-    navigate('/post-list');
+      .then(data => {
+        if (data.message === 'userCreated') {
+          navigate('/post-list');
+        } else {
+          alert('다시 시도해주세요');
+        }
+      });
   };
   return (
     <div className="post">
@@ -42,7 +47,8 @@ const PostEditing = () => {
           alt="프로필"
         />
         <div className="userWrapper">
-          <div className="userNickName">name</div>
+          <div className="userNickName">사용자</div>
+          {/* {userProfile.nickname} */}
           <textarea className="userPost" placeholder="스레드를 시작하세요." />
         </div>
       </div>
